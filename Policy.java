@@ -43,35 +43,58 @@ public class Policy // Public class named Policy
    }
    
    //setters methods for fields in the Policy class
+   /**
+   * @param pn for policy number
+   */
    public void setPolicyNum(int pn)
    {
       polNum = pn;
    }
+   /**
+   * @param prn for provider name
+   */
    public void setProviderName(String prn)
    {
       provName = prn;
    }
+   /**
+   * @param fn for first name
+   */
    public void setFirstName(String fn)
    {
       fName = fn;
    }
+   /**
+   * @param ln for last name
+   */
    public void setLastName(String ln)
    {
       lName = ln;
    }
+   /**
+   * @param ht for height
+   */
    public void setHeight(double ht)
    {
       height = ht;
    }
+   /**
+   * @param wt for weight
+   */
    public void setWeight(double wt)
    {
       weight = wt;
    }
+   /**
+   * @param ag for age
+   */
    public void setAge(double ag)
    {
       age = ag;
    }
-
+   /**
+   * @param ssc for smoker status choice
+   */
    public void setSmokeStatusChoice(double ssc)
    {
       smokeStatusChoice = ssc;
