@@ -1,4 +1,6 @@
 import java.util.Scanner; //import Scanner class to read user input
+import java.io.*;
+//import java.util.ArrayList;
 
 public class Project_josiah_skipper
 {
@@ -12,25 +14,37 @@ public class Project_josiah_skipper
       double policyHolderHeight, policyHolderWeight, policyHolderAge, bodyMass, smokeStatusChoice,
          policyPrice;
       
-      //Askiing user the promt questions and storing the responses in the corresponding variables.
-      System.out.print("Please enter the Policy Number: ");
-      policyNumber = keyboard.nextInt();
-      keyboard.nextLine();
-      System.out.print("Please enter the Provider Name: ");
-      providerName = keyboard.nextLine(); 
-      System.out.print("Please enter the Policyholder’s First Name: ");
-      firstName = keyboard.nextLine();
-      System.out.print("Please enter the Policyholder’s Last Name: ");
-      lastName = keyboard.nextLine(); 
-      System.out.print("Please enter the Policyholder’s Age: ");
-      policyHolderAge = keyboard.nextDouble();
-      keyboard.nextLine();
-      System.out.print("Please enter the Policyholder’s Smoking Status (smoker/non-smoker): ");
-      smokeStatus = keyboard.nextLine(); 
-      System.out.print("Please enter the Policyholder’s Height (in inches): ");
-      policyHolderHeight = keyboard.nextDouble();
-      System.out.print("Please enter the Policyholder’s Weight (in pounds): ");
-      policyHolderWeight = keyboard.nextDouble();
+
+      // want to open a process text file containing info about Charlotte weather
+      File file = new File("PolicyInformation.txt");
+      
+      if(!file.exists())
+      {
+         System.out.println("Unable to open file.");
+         System.exit(0);
+      }
+      
+      Scanner inputFile = new Scanner(file);//"open the file"
+
+        
+      while(inputFile.hasNext())
+      {
+        policyNumber = inputFile.nextInt(); 
+        providerName = inputFile.nextLine();
+        firstName = inputFile.nextLine();
+        lastName = inputFile.nextLine();
+        policyHolderAge = inputFile.nextDouble();
+        smokeStatus = inputFile.nextLine();
+        policyHolderHeight = inputFile.nextDouble();
+        policyHolderWeight = inputFile.nextDouble();
+        
+        if(inputFile.hasNext())
+        inputFile.nextLine();//clear the newline
+        if(inputFile.hasNext())
+        inputFile.nextLine();// skip blank line in file
+      }
+      inputFile.close();//"close the file"
+
       
       /* if-else statement to store a numeric value in the
       smokeStatusChoice variable based on the String response from the user. This
